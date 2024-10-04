@@ -8,8 +8,9 @@ parser = ArgumentParser()
 parser.add_argument('-a', '--add', help='Adds a task to the task tracker.')
 parser.add_argument('-u', '--update', help='Updates a task in the task tracker.', nargs=2)
 parser.add_argument('-d', '--delete', help='Deletes a task in the task tracker.')
-parser.add_argument('-l', '--list', help='Lists all tasks in the task tracker; filter with \'-d\', \'-nd\', and \'-wip\'.', 
-                    choices=['', '-d', '-nd', '-wip'])
+parser.add_argument('-m', '--mark', help='Marks an existing task with a (new) status;', choices=['-d', '-nd', '-wip'])
+parser.add_argument('-l', '--list', help='Lists all tasks in the task tracker; filter with \'-d\', \'-nd\', and \'-wip\'.',
+                    nargs='*', const='', choices=['', '-d', '-nd', '-wip'])
 
 args = parser.parse_args()
 
@@ -57,3 +58,32 @@ if args.delete:
     new_file = open('tasks.json', 'w')
     new_file.write(json.dumps(file))
     new_file.close()
+
+if args.list:
+    match args.list:
+        case '':
+            for id in file:
+                print(f"Task: {file[id]["description"]} (ID: {id}); Status: {file[id]["status"]}; Created {file[id]["createdAt"]}; Last Updated {file[id]["updatedAt"]}")
+            if not file:
+                print("No tasks!")
+
+        case '-d':
+            for id in file:
+                print(f"Task: {file[id]["description"]} (ID: {id}); Created {file[id]["createdAt"]}; Last Updated {file[id]["updatedAt"]}")
+            if not file:
+                print("No tasks are tagged as done!")
+
+        case '-nd':
+            for id in file:
+                print(f"Task: {file[id]["description"]} (ID: {id}); Created {file[id]["createdAt"]}; Last Updated {file[id]["updatedAt"]}")
+            if not file:
+                print("No tasks are tagged as not done!")
+
+        case '-wip':
+            for id in file:
+                print(f"Task: {file[id]["description"]} (ID: {id}); Created {file[id]["createdAt"]}; Last Updated {file[id]["updatedAt"]}")
+            if not file:
+                print("No tasks are tagged as in progress!")
+
+        case _:
+            print('No action available! How\'d you even get here?')
