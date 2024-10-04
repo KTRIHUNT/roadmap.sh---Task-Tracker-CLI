@@ -12,11 +12,12 @@ Run commands through python and main.py, Example: `>> python main.py --list todo
 
 #### Commands
 
-- --add [TASK]
-- --delete [
-- --update 
-- --list
-- --mark
+- --add [DESCRIPTION]
+- --delete [ID]
+- --update [ID] [DESCRIPTION]
+- --list [optional: STATUS]
+- --mark [ID] [STATUS]
+- --help
 
 #### Dependencies
 
