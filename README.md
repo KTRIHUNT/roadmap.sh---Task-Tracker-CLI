@@ -18,7 +18,7 @@ Run commands through python and main.py, Example: `>> python main.py --list todo
 | --delete [ID]<br>-d [ID]                             | Deletes a task in the task tracker; i.e. "--delete 1".                            | ID: ID number associated with an existing task.                                                          |
 | --update [ID] [DESCRIPTION]<br>-u [ID] [DESCRIPTION] | Updates a task's description in the task tracker; i.e. "--update 1 Do the dishes" | ID: ID number associated with an existing task.<br>DESCRIPTION: Description of your task.                |
 | --list [optional: STATUS]<br>-l [optional: STATUS]   | Lists all tasks in the task tracker, including task description, id, date created, last updated, and status (if not specified); i.e. "--list todo". | STATUS: Status of the task (Allowed: todo, done, wip) |
-| --mark [ID] [STATUS]<br>-m [ID] [STATUS]             | Marks an existing task with a (new) status; i.e. "--mark 1 todo".                 | ID: ID number associated with an existing task.<br>STATUS: Status of the task (Allowed: todo, done, wip) |
+| --mark [ID] [STATUS]<br>-m [ID] [STATUS]             | Marks an existing task with a new status; i.e. "--mark 1 todo".                   | ID: ID number associated with an existing task.<br>STATUS: Status of the task (Allowed: todo, done, wip) |
 | --help<br>-h                                         | argparse built-in command, will display a less verbose version of this section.   |                                                                                                          |
 
 
