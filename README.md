@@ -9,7 +9,8 @@ This is the first project of this account, if you want to know the requirements 
 
 Download the python file from the repository and open its directory in a CLI (Command Line Interface).
 Run commands through python and main.py, Example:
->> python main.py -a Wash the dishes
+`>`> python main.py --list todo
+
 
 #### Dependencies
 
